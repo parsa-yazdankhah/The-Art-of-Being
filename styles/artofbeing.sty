@@ -1,0 +1,71 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/artofbeing}[2026/11/15 A5 art-book layout]
+\RequirePackage{fontspec}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{geometry}
+\geometry{
+  paperwidth=148mm,
+  paperheight=210mm,
+  margin=18mm,
+  noheadfoot
+}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\definecolor{Ivory}{HTML}{F7F3EA}
+\definecolor{Ink}{HTML}{39332D}
+\definecolor{Muted}{HTML}{82766A}
+\definecolor{Poetic}{HTML}{76634F}
+\definecolor{Gold}{HTML}{B69A72}
+\definecolor{Hairline}{HTML}{D9CDBB}
+
+% Font binaries are NOT redistributed. Install these font families on your system.
+% The approved Word/PDF used EB Garamond's optical 08 face, not a generic Garamond.
+% Name the files exactly as below or modify only this central style file.
+\newfontfamily\ArtEB[
+  UprightFont=EBGaramond08-Regular.ttf,
+  ItalicFont=EBGaramond08-Italic.ttf,
+  BoldFont=EBGaramond12-Bold.ttf
+]{EB Garamond}
+\newfontfamily\ArtCJK[
+	Path = fonts/,
+	UprightFont = NotoSansCJKjp-Regular.otf,
+	BoldFont = NotoSansCJKjp-Bold.otf
+]{Noto Sans CJK JP}
+
+\newcommand{\Fontgaramond}{\ArtEB}
+\newcommand{\Fontgaramonditalic}{\ArtEB\itshape}
+\newcommand{\Fontgaramondbold}{\ArtEB\bfseries}
+\newcommand{\Fontcjk}{\ArtCJK}
+
+\newcommand{\ArtRule}[1][.46\linewidth]{%
+  \par\noindent{\color{Gold}\rule{#1}{0.4pt}}\par
+}
+\newcommand{\EntryStart}{\vspace*{-2mm}}
+\newcommand{\EntryRuleBlock}{%
+  \vspace{5mm}%
+  \begin{center}\ArtRule[.78\linewidth]\end{center}%
+  \vspace{5mm}%
+}
+\newcommand{\EntryDefinitionGap}{\vspace{24mm}}
+\newcommand{\EntryFooterGap}{\vspace{15mm}}
+\newcommand{\EntryBottomSpace}{\vspace{4mm}}
+
+\newenvironment{ArtPage}{%
+  \clearpage
+  \thispagestyle{empty}%
+  \pagecolor{Ivory}%
+}{%
+  \par\clearpage
+}
+
+\newenvironment{ArtFullPage}{%
+  \clearpage
+  \newgeometry{margin=0mm,noheadfoot}%
+  \thispagestyle{empty}%
+  \pagecolor{Ivory}%
+}{%
+  \par\clearpage
+  \restoregeometry
+}

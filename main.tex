@@ -1,0 +1,29 @@
+% THE ART OF BEING — XeLaTeX modular source
+% Build with: latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+\documentclass[10pt]{article}
+\usepackage{styles/artofbeing}
+\usepackage{hyperref}
+\hypersetup{pdftitle={The Art of Being},pdfauthor={Parsa Yazdankhah},pdfsubject={An expandable illustrated lexicon},colorlinks=false}
+\begin{document}
+\input{pages/cover}
+\input{pages/inside_cover}
+\input{pages/introduction}
+
+% To add another expression, copy templates/new_entry.tex into entries/, edit
+% its text and illustration path, and add another \input line below. The
+% edition deliberately does not declare a fixed number of words.
+\input{entries/01_gokotta}
+\input{entries/02_yutori}
+\input{entries/03_sobremesa}
+\input{entries/04_cafune}
+\input{entries/05_joie_de_vivre}
+\input{entries/06_la_dolce_vita}
+\input{entries/07_meraki}
+\input{entries/08_ikigai}
+\input{entries/09_sisu}
+\input{entries/10_wabi_sabi}
+\input{entries/11_orophile}
+\input{entries/12_hakuna_matata}
+
+\input{pages/back_cover}
+\end{document}
